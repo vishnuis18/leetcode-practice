@@ -1,12 +1,20 @@
 class Solution {
     public int countMonobit(int n) {
-        int count=0;
-        for (int i=0;i<=n;i++){
-            String b = Integer.toBinaryString(i);
-            if(!b.contains("01") && !b.contains("10")){
-                count++;
+        
+        int count = 1;
+        int x = 0;
+
+        while (true) {
+
+            x = (x << 1) | 1;
+
+            if (x > n) {
+                break;
             }
+
+            count++;
         }
+
         return count;
     }
 }
