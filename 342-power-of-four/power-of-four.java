@@ -6,6 +6,6 @@ class Solution {
             n /= 4;
         }
 
-        return n == 1;
+        return n==1;
     }
 }
