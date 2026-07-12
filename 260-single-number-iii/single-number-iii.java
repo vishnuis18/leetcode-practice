@@ -1,29 +1,27 @@
-import java.util.*;
-
 class Solution {
     public int[] singleNumber(int[] nums) {
-        ArrayList<Integer> arr = new ArrayList<>();
+        int xor = 0;
 
-        for (int i = 0; i < nums.length; i++) {
-            int count = 0;
+        // Step 1: XOR all numbers
+        for (int num : nums) {
+            xor ^= num;
+        }
 
-            for (int j = 0; j < nums.length; j++) {
-                if (nums[i] == nums[j]) {
-                    count++;
-                }
-            }
+        // Step 2: Find rightmost set bit
+        int diffBit = xor & (-xor);
 
-            if (count == 1) {
-                arr.add(nums[i]);
+        int a = 0;
+        int b = 0;
+
+        // Step 3: Divide numbers into 2 groups
+        for (int num : nums) {
+            if ((num & diffBit) == 0) {
+                a ^= num;
+            } else {
+                b ^= num;
             }
         }
 
-        int[] ans = new int[arr.size()];
-
-        for (int i = 0; i < arr.size(); i++) {
-            ans[i] = arr.get(i);
-        }
-
-        return ans;
+        return new int[]{a, b};
     }
 }
