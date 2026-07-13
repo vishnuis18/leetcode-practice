@@ -2,17 +2,13 @@ class Solution {
     public int countMonobit(int n) {
         
         int count = 1;
-        int x = 0;
+        int current = 1;
 
-        while (true) {
-
-            x = (x << 1) | 1;
-
-            if (x > n) {
-                break;
-            }
-
+        while (current<=n) {
             count++;
+
+            current = (current << 1) | 1;
+
         }
 
         return count;
