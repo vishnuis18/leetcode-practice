@@ -1,3 +1,24 @@
+class Solution{
+    public int longestPalindrome(String s){
+        HashSet<Character> map=new HashSet<>();
+        int count=0;
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(map.contains(ch)){
+                map.remove(ch);
+                count+=2;
+            }else{
+                map.add(ch);
+            }
+        }
+        if(!map.isEmpty()){
+            count++;
+        }
+        return count;
+    }
+}
+
+/*
 class Solution {
     public int longestPalindrome(String s) {
         if (s.length() <= 1) {
@@ -40,3 +61,4 @@ class Solution {
         return answer;
     }
 }
+*/
