@@ -2,29 +2,23 @@ class Solution {
     public int minimumPushes(String word) {
 
         HashMap<Integer, Integer> map = new HashMap<>();
-
-        // Keys 2 to 9 initialized with 0
+ 
         for (int i = 2; i <= 9; i++) {
             map.put(i, 0);
         }
 
-        int assignKey = 2;
-        int result = 0;
-
-        for (char ch : word.toCharArray()) {
-
-            if (assignKey > 9) {
-                assignKey = 2;
+        int value=2;
+        int result=0;
+        for(char ch : word.toCharArray()){
+            if(value>9){
+                value=2;
             }
-
-            map.put(assignKey, map.get(assignKey) + 1);
-
-            result += map.get(assignKey);
-
-            assignKey++;
+            map.put(value,map.get(value)+1);
+            result+=map.get(value);
+            value++;
         }
-
         return result;
+
     }
 }
 /*
