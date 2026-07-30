@@ -3,31 +3,20 @@ import java.util.Arrays;
 class Solution {
     public int minimumPushes(String word) {
 
-        int[] freq = new int[26];
+        Integer[] freq = new Integer[26];
+        Arrays.fill(freq, 0);
 
-        // Count frequency of each character
         for (char ch : word.toCharArray()) {
             freq[ch - 'a']++;
         }
 
-        Arrays.sort(freq);
+        Arrays.sort(freq, java.util.Collections.reverseOrder());
 
         int result = 0;
-        int press = 1;
-        int count = 0;
-        
-        for (int i = 25; i >= 0; i--) {
 
-            if (freq[i] == 0) break;
-
-            result += freq[i] * press;
-
-            count++;
-
-            if (count == 8) {
-                press++;
-                count = 0;
-            }
+        for (int i = 0; i < 26; i++) {
+            int press = i / 8 + 1;
+            result += press * freq[i];
         }
 
         return result;
