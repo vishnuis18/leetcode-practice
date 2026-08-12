@@ -4,22 +4,16 @@ class Solution {
         while (n >= 10) {
             String s = String.valueOf(n);
 
-            ArrayList<String> list = new ArrayList<>();
-
-            for (int i = 0; i < s.length(); i++) {
-                list.add(String.valueOf(s.charAt(i)));
-            }
-
             int sum = 0;
 
-            for (int i = 0; i < list.size(); i++) {
-                int digit = Integer.parseInt(list.get(i));
+            for (int i = 0; i < s.length(); i++) {
+                int digit = s.charAt(i) - '0';
                 sum += digit * digit;
             }
 
             n = sum;
         }
 
-        return n == 1 || n == 7;
+         return n == 1 || n == 7;
     }
 }
