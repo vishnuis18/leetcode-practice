@@ -25,7 +25,7 @@ class Solution {
                 j++;
             }else if(j-i+1==k){
                 if(count==0){
-                    ans.add(i);
+                    ans.add(j-k+1);
                 }
 
                 if(map.containsKey(s.charAt(i))){
