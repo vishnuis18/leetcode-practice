@@ -5,7 +5,6 @@ class Solution {
         int n = fruits.length;
         int k = 2;
         int maxlength = 0;
-
         HashMap<Integer, Integer> map = new HashMap<>();
         while (j < n) {
             map.put(fruits[j], map.getOrDefault(fruits[j], 0) + 1);
@@ -20,7 +19,6 @@ class Solution {
             maxlength = Math.max(maxlength, j - i + 1);
             j++;
         }
-
         return maxlength;
     }
 }
