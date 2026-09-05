@@ -1,5 +1,26 @@
 class Solution {
     public int minCostToMoveChips(int[] position) {
+        int even=0;
+        int odd=0;
+        
+        int n=position.length;
+        for(int i=0;i<n;i++){
+            if(position[i]%2==0){
+                even++;
+            }else{
+                odd++;
+            }
+        }
+
+        int answer=Math.min(even,odd);
+        return answer;
+    }
+}
+
+
+/*
+class Solution {
+    public int minCostToMoveChips(int[] position) {
         int n=position.length;
         HashMap<Integer,Integer> map=new HashMap<>();
 
@@ -22,3 +43,4 @@ class Solution {
 
     }
 }
+*/
