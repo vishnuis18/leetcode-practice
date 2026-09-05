@@ -1,17 +1,24 @@
 class Solution {
     public int minCostToMoveChips(int[] position) {
+        int n=position.length;
+        HashMap<Integer,Integer> map=new HashMap<>();
 
-        int even = 0;
-        int odd = 0;
+        int min=Integer.MAX_VALUE;
 
-        for (int i = 0; i < position.length; i++) {
-            if (position[i] % 2 == 0) {
-                even++;
-            } else {
-                odd++;
-            }
+        for(int i=0;i<n;i++){
+            map.put(position[i],map.getOrDefault(position[i],0)+1);
         }
 
-        return Math.min(even, odd);
+        for(int key : map.keySet()){
+            int cost=0;
+            for(int pos : map.keySet()){
+                if((key-pos)%2!=0){
+                    cost+=map.get(pos);
+                }
+            }
+            min=Math.min(min,cost);
+        }
+        return min;
+
     }
 }
