@@ -1,5 +1,35 @@
 class Solution {
     public boolean lemonadeChange(int[] bills) {
+        int five=0;
+        int ten=0;
+
+        for(int bill:bills){
+            if(bill==5){
+                five++;
+            }else if(bill==10){
+                if(five==0){
+                    return false;
+                }else{
+                    five--;
+                    ten++;
+                }
+            }else{
+                if(five>=1 && ten>=1){
+                    five--;
+                    ten--;
+                }else if(five>=3){
+                    five=five-3;
+                }else{
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+/*
+class Solution {
+    public boolean lemonadeChange(int[] bills) {
         int n=bills.length;
 
         HashMap<Integer,Integer> map=new HashMap<>();
@@ -32,3 +62,4 @@ class Solution {
         return true;
     }
 }
+*/
