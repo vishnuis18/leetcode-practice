@@ -1,5 +1,26 @@
 class Solution {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
+        
+        int sum=0;
+        int n=boxTypes.length;
+        Arrays.sort(boxTypes,(a,b)->b[1]-a[1]);
+        for(int i=0;i<n;i++){
+            if(truckSize==0){
+                break;
+            }
+            int boxes=Math.min(boxTypes[i][0],truckSize);
+
+            sum=sum+(boxes*boxTypes[i][1]);
+            truckSize-=boxes;
+        }
+        return sum;
+    }
+}
+
+
+/*
+class Solution {
+    public int maximumUnits(int[][] boxTypes, int truckSize) {
 
         int n = boxTypes.length;
         int m = boxTypes[0].length;
@@ -26,3 +47,4 @@ class Solution {
         return sum;
     }
 }
+*/
