@@ -1,5 +1,24 @@
 class Solution {
     public int findKthPositive(int[] arr, int k) {
+        ArrayList<Integer> ans=new ArrayList<>();
+        int num=1;
+        int n=arr.length;
+        int i=0;
+        while(ans.size()<k){
+            if(i<n && arr[i]==num){
+                i++;
+            }else{
+                ans.add(num);
+            }
+            num++;
+        }
+        return ans.get(k-1);
+    }
+}
+
+/*
+class Solution {
+    public int findKthPositive(int[] arr, int k) {
         int n=arr.length;
         ArrayList<Integer> ans=new ArrayList<>();
         if(arr[0]>1){
@@ -31,3 +50,4 @@ class Solution {
         return ans.get(k-1);
     }
 }
+*/
