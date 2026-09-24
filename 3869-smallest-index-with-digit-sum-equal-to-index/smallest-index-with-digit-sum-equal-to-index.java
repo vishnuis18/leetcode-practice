@@ -1,3 +1,4 @@
+/*
 class Solution {
     public int smallestIndex(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
@@ -14,7 +15,7 @@ class Solution {
         return -1;
     }
 }
-/*
+*/
 class Solution {
     public int smallestIndex(int[] nums) {
         int n = nums.length;
@@ -33,4 +34,3 @@ class Solution {
         return -1;
     }
 }
-*/
