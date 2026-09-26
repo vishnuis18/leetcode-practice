@@ -19,8 +19,8 @@ class Solution {
     }
 }
 
-
-/*class Solution {
+/*
+class Solution {
     public int findLHS(int[] nums) {
         LinkedList<Integer> list = new LinkedList<>();
         for (int num : nums) {
