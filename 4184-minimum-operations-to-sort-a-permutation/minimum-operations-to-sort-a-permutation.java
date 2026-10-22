@@ -1,37 +1,29 @@
 class Solution {
-    public int minOperations(int[] A) {
-        int n = A.length;
-
-        int asc = 1;
-        int dsc = 1;
+    public int minOperations(int[] nums) {
+        int n = nums.length;
+        boolean asc = true;
+        boolean dsc = true;
 
         for (int i = 1; i < n; i++) {
-
-            if (A[i] == (A[i - 1] + 1) % n) {
-                asc++;
+            if (nums[i] != (nums[i - 1] + 1) % n) {
+                asc = false;
             }
 
-            if (A[i - 1] == (A[i] + 1) % n) {
-                dsc++;
+            if (nums[i - 1] != (nums[i] + 1) % n) {
+                dsc = false;
             }
         }
 
-        if (asc == n) {
-            if (A[0] == 0) {
+        if (asc) {
+            if (nums[0] == 0) {
                 return 0;
-            } else {
-                int rotateOperations = n - A[0];
-                int reverseOperations = A[0] + 2;
-
-                return Math.min(rotateOperations, reverseOperations);
             }
+
+            return Math.min(n - nums[0], nums[0] + 2);
         }
 
-        if (dsc == n) {
-            int rotateOperations = n - A[n - 1];
-            int reverseOperations = A[n - 1];
-
-            return Math.min(rotateOperations, reverseOperations) + 1;
+        if (dsc) {
+            return Math.min(n - nums[n - 1], nums[n - 1]) + 1;
         }
 
         return -1;
