@@ -5,6 +5,7 @@ class Solution {
         int rmax=0;
 
         int ans=0;
+        
         int l=0;
         int r=n-1;
         while(l<r){
