@@ -12,11 +12,11 @@ class Solution {
         int duplicate = -1;
         int missing = -1;
 
-        for (int i = 1; i <= n; i++) {
-            if (map.getOrDefault(i, 0) == 2) {
-                duplicate = i;
-            } else if (map.getOrDefault(i, 0) == 0) {
-                missing = i;
+        for(int i=1;i<=n;i++){
+            if(map.getOrDefault(i,0)==2){
+                duplicate=i;
+            }else if(map.getOrDefault(i,0)==0){
+                missing=i;
             }
         }
 
